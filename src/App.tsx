@@ -17,7 +17,7 @@ export const App: React.FC<Props> = ({ delay = 300, onSelected }) => {
   const appliedQuery = useDebounce(query, delay);
 
   const filteredPeople = peopleFromServer.filter(person =>
-    person.name.toLowerCase().includes(appliedQuery.toLowerCase()),
+    person.name.toLowerCase().includes(appliedQuery.trim().toLowerCase()),
   );
 
   const handleSelect = (person: Person) => {
